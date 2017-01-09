@@ -1,12 +1,12 @@
 var editorService = (function() {
-    var helloButtonHtml = '<input class="inputfile" type="file" name="file" id="file" role="button" style="display:none"><label class="fa fa-child" for="file">Choose a file</label>';
+    var helloButtonHtml = '<input class="inputfile" type="file" name="file" id="file" role="button" style="display:none"><label class="fa fa-folder-open" for="file"> Open</label>';
     var HelloButton = function(context) {
         var ui = $.summernote.ui;
 
         // create button
         var button = ui.button({
             contents: helloButtonHtml,
-            tooltip: 'hello',
+            tooltip: 'Open File',
             click: handleFileSelect
         });
 
@@ -42,8 +42,9 @@ var editorService = (function() {
     }
 
     function readFileInputEventAsArrayBuffer(event, callback) {
-        console.log("files", event.target.files, "Target", event.target, typeof event.target.files);
-        if (event.target.files) {
+        // Set up event handlers on init?
+        if (event.target.files && event.target.files.length > 0) {
+            console.log("files", event.target.files, "Target", event.target, typeof event.target.files);
             var file = event.target.files[0];
 
             var reader = new FileReader();
