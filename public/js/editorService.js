@@ -42,16 +42,19 @@ var editorService = (function() {
     }
 
     function readFileInputEventAsArrayBuffer(event, callback) {
-        var file = event.target.files[0];
+        console.log("files", event.target.files, "Target", event.target, typeof event.target.files);
+        if (event.target.files) {
+            var file = event.target.files[0];
 
-        var reader = new FileReader();
+            var reader = new FileReader();
 
-        reader.onload = function(loadEvent) {
-            var arrayBuffer = loadEvent.target.result;
-            callback(arrayBuffer);
-        };
+            reader.onload = function(loadEvent) {
+                var arrayBuffer = loadEvent.target.result;
+                callback(arrayBuffer);
+            };
 
-        reader.readAsArrayBuffer(file);
+            reader.readAsArrayBuffer(file);
+        }
     }
 
     return {
