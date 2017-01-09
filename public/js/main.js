@@ -20,5 +20,5 @@ $(document).ready(function() {
     });
 
     // Setup event handler for file opening
-    $(".inputfile").change(editorService.handleFileSelect);
+    //$(".inputfile").change(editorService.handleFileSelect);
 });
