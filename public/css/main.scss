@@ -1,44 +1,99 @@
 @import "lib/font-awesome/font-awesome";
-
-html, body {
-  font-size: 14px;
-  line-height: 1.5; 
-  font-family: 'Roboto', sans-serif;
+html,
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
 }
+
+
 /* lobotomized owl for vert rhythm */
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0;
 }
+
 [class*="col-"] > * + *,
+.note-editable > * + *,
 .row {
-  margin-top: 1.5em;
-  margin-top: 1.5rem; // Keep this equal to line height
-  margin-bottom: 0;
+    margin-top: 1.5em;
+    margin-top: 1.5rem; // Keep this equal to line height
+    margin-bottom: 0;
 }
 
-.note-editor:nth-child(2),
-.m-t-0 {
-  margin-top: 0;
+.note-editor:nth-child(2) {
+    margin-top: 0;
 }
+
+// Font sizes!
 h1 {
-  font-size: 3em;
-  font-size: 3rem;
-}
-h2 {
-  font-size: 2.25em;
-  font-size: 2.25rem;
-}
-h3 {
-  font-size: 1.75em;
-  font-size: 1.75rem;
-}
-h4 {
-  font-size: 1.25em;
-  font-size: 1.25rem;
+    font-size: 3em;
+    font-size: 3rem;
 }
 
-@media screen and (min-width: 769px){
-  html, body {
-    font-size: 18px;
-  }  
+h2 {
+    font-size: 2.25em;
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.75em;
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.25em;
+    font-size: 1.25rem;
+}
+
+@media screen and (min-width: 769px) {
+    html,
+    body {
+        font-size: 16px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+    }
+}
+
+// Hero component
+.hero > h1 + p {
+    margin-top: 0; // Bring these in closer
+}
+
+// File input
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    display: inline-block;
+}
+
+.inputfile + label {
+    cursor: pointer;
+    /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label * {
+    pointer-events: none;
 }
