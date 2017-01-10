@@ -7,7 +7,12 @@ var editorService = (function() {
         var button = ui.button({
             contents: helloButtonHtml,
             tooltip: 'Open File',
-            click: handleFileSelect
+            click: function(event) {
+                if(event.target.tagName === "BUTTON") {
+                    $(event.target).find('.inputfile').click();
+                }
+                event.stopPropagation(); // We set the click event on the file input during init
+            }
         });
 
         return button.render(); // return button as jquery object 
@@ -16,7 +21,6 @@ var editorService = (function() {
     // Methods
     function displayResult(result) {
         if (result.value) {
-            console.log(result.value);
             // Probably need to do some processing here
             // Swap ndashes to mdashes
             // Convert links and make them open in new tab
@@ -39,6 +43,7 @@ var editorService = (function() {
     function init(selector, options) {
         // set up summer note
         $(selector).summernote(options);
+        return $(".inputfile").on("change", handleFileSelect);
     }
 
     function readFileInputEventAsArrayBuffer(event, callback) {
