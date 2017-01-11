@@ -98,6 +98,11 @@ h4 {
     pointer-events: none;
 }
 
+// Editor UI
+.note-control-selection {
+    display: none; // Hide selection overlay
+    z-index: -1;
+}
 // Editor Content
 .img-left {
     margin-right: 15px;
