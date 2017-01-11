@@ -97,3 +97,18 @@ h4 {
 .inputfile + label * {
     pointer-events: none;
 }
+
+// Editor Content
+.img-left {
+    margin-right: 15px;
+    margin-left: 0;
+}
+.img-right {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.img-block {
+    margin-right: 0;
+    margin-left: 0;
+    display: block;
+}

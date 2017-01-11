@@ -50,23 +50,16 @@ var editorService = (function() {
         // set up summer note
         $(selector).summernote(options);
         $(selector).on('summernote.change', function(we, contents, $editable) {
-            // Should be done with classes
             $('.note-editable img').each(function() {
                 if ($(this).css('float') === 'left') {
-                    $(this).css('margin-right', 15 + "px");
-                    $(this).css('margin-left', 0);
+                    $(this).removeClass('img-right img-block').addClass('img-left');
                 } else if ($(this).css('float') === 'right') {
-                    $(this).css('margin-left', 15 + "px");
-                    $(this).css('margin-right', 0);
+                    $(this).removeClass('img-left img-block').addClass('img-right');
                 } else {
-                    $(this).css('margin-right', 0);
-                    $(this).css('margin-left', 0);
-                    $(this).css('display', 'block');
+                    $(this).removeClass('img-left img-right').addClass('img-block');
                 }
             });
         });
-
-
         return initEvents();
     }
 
