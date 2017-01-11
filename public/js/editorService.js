@@ -30,12 +30,6 @@ var editorService = (function() {
         } else {
             $('#summer-note').summernote('code', 'Didn\'t work...');
         }
-
-        return $('.note-editor img').each(function() {
-            $(this).on('click', function() {
-                console.log('this');
-            });
-        });
     }
 
     function handleFileSelect(event) {
@@ -51,6 +45,20 @@ var editorService = (function() {
         $(selector).summernote(options);
         $(selector).on('summernote.change', function(we, contents, $editable) {
             $('.note-editable img').each(function() {
+
+                // Make sure images aren't wrapped in anything but figures with a figcaption
+                // Need to add a way to delete figcaptions
+                if( $(this).parent().prop("tagName") !== 'FIGURE') {
+                    $(this).unwrap().wrap('<figure></figure>');
+                    $(this).parent().append($('<figcaption>Enter Caption Here</figcaption>'));
+                    $(this).parent().on('click', function(){
+                        $(this).css('border', function(){
+                            console.log('click img');
+                        })
+                    })
+                }
+
+                // Make sure they have padding when proper
                 if ($(this).css('float') === 'left') {
                     $(this).removeClass('img-right img-block').addClass('img-left');
                 } else if ($(this).css('float') === 'right') {
