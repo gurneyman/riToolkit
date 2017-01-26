@@ -1,5 +1,5 @@
 {
-  "name": "riConvert",
+  "name": "riconvert",
   "homepage": "https://github.com/sahat/hackathon-starter",
   "authors": [
     "Tom Prince <tprince14@gmail.com>"
@@ -14,5 +14,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "summernote": "^0.8.2"
+  }
 }
