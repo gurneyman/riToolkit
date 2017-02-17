@@ -82,5 +82,8 @@
       "no-console": 0,
       "no-plusplus": 0
     }
+  },
+  "engines": {
+    "node": "6.9.5"
   }
 }
