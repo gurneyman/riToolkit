@@ -10,7 +10,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "postinstall": "cd public bower install"
   },
   "dependencies": {
     "async": "^2.1.2",
